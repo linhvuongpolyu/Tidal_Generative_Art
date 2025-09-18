@@ -1,18 +1,26 @@
-# Generative Art: Tidal Data Spiral Visualization
 
-This project fetches tidal data from the Hong Kong Observatory and visualizes it as a moving spiral using Pygame.
+# Generative Art: Tidal & Climate Flower Visualization
+
+This project visualizes:
+- **Tidal data** from the Hong Kong Observatory as a dynamic, colorful spiral/starburst.
+- **Climate data** (Vietnam, 1991-2020, from `chart.csv`) as a vibrant, animated flower of motion dots, with each petal representing a month.
 
 ## Features
 - Fetches and parses tidal data from https://www.hko.gov.hk/tide/eCLKtext2027.html
-- Visualizes tidal heights as a dynamic spiral
-- Built with Python and Pygame
+- Reads climate data from a local `chart.csv` file (average temperature and precipitation by month)
+- Visualizes:
+  - Tidal heights as a moving, color-cycling spiral
+  - Climate data as a flower of animated, pulsing dots
+- Interactive: Switch between visualizations using on-screen buttons or keyboard (`T` for Tidal, `C` for Climate)
+- Modern, beautiful, and responsive Pygame UI
 
 ## Setup
-1. Install dependencies:
+1. Place your `chart.csv` file in the same folder as `main.py`.
+2. Install dependencies:
    ```sh
    pip install -r requirements.txt
    ```
-2. Run the main script:
+3. Run the main script:
    ```sh
    python main.py
    ```
@@ -25,4 +33,4 @@ This project fetches tidal data from the Hong Kong Observatory and visualizes it
 
 ## Notes
 - This project is for creative coding and generative art purposes.
-- Replace the data source or visualization logic as needed for your own experiments.
+- You can add your own datasets and visualizations by extending `main.py`.
