@@ -162,7 +162,8 @@ def main():
         elif mode == "climate":
             draw_climate_flower(screen, mean_temps, precipitation, angle_offset, color_phase)
 
-    # Draw a semi-transparent overlay at the bottom for button area
+
+        # Draw a semi-transparent overlay at the bottom for button area
         overlay = pygame.Surface((WIDTH, 180), pygame.SRCALPHA)
         overlay.fill((20, 20, 40, 180))  # RGBA: last value is alpha for transparency
         screen.blit(overlay, (0, HEIGHT-180))
@@ -180,11 +181,22 @@ def main():
                 print("DEBUG: Switched to climate mode (button)")
                 mode = "climate"
 
-        # Show current mode label
+        # Show current mode label and data title
         pygame.font.init()
         font = pygame.font.SysFont("Arial", 28)
         label = font.render(f"Current mode: {mode.capitalize()}", True, (200, 220, 255))
         screen.blit(label, (20, 20))
+        # Data title for each visualization
+        title_font = pygame.font.SysFont("Arial", 32, bold=True)
+        if mode == "tidal":
+            title_text = "Tidal Data: Hong Kong Observatory (https://www.hko.gov.hk/tide/eCLKtext2027.html)"
+        elif mode == "climate":
+            title_text = "Climate Data: Vietnam 1991-2020 (chart.csv)"
+        else:
+            title_text = ""
+        title_surf = title_font.render(title_text, True, (255, 230, 120))
+        # Add more space between the title and the upper edge
+        screen.blit(title_surf, (WIDTH//2 - title_surf.get_width()//2, 90))
 
         pygame.display.flip()
         angle_offset += 0.01
